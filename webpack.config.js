@@ -1,5 +1,5 @@
 var config = {
-   entry: './app/components/Main.js',
+   entry: './main.js',
 	
    output: {
       filename: 'public/bundle.js',
