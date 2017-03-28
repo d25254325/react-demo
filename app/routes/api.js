@@ -11,7 +11,7 @@ module.exports = function (app) {
     // apiRoutes.post('/users',UserController.createUser);
 
     apiRoutes.post('/authenticate',function(req,res){
-        User.findOne({ name: req.body.name },function(error,user){
+        User.findOne({ userName: req.body.userName },function(error,user){
             if(error) throw error;
             if(!user){
                 res.json({ 

@@ -4,7 +4,7 @@ import axios from 'axios'
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? 'http://localhost:3000/api' : '/api';
 
 // load songs
-export function loadSongs(songs){
+export function loadSongs(songs,tokenFromStorage){
     const request = axios({
         method: 'get',
         url: `${ROOT_URL}/songs`,
@@ -38,7 +38,7 @@ export function createSong(props, tokenFromStorage){
     const request = axios({
         method: 'post',
         data: props,
-        url: `${ROOT_URL}/createSong`,
+        url: `${ROOT_URL}/songs`,
         header: {
             'x-access-token': tokenFromStorage
         }
@@ -67,8 +67,15 @@ export function resetNewSong(){
 }
 
 // get song by id
-export function getSong(id){
-    const request = axios.get(`${ROOT_URL}/song/${id}`);
+export function getSong(id,tokenFromStorage){
+    // const request = axios.get(`${ROOT_URL}/songs/${id}`);
+    const request = axios({
+        method: 'get',
+        url: `${ROOT_URL}/songs/${id}`,
+        header: {
+            'x-access-token': tokenFromStorage
+        }
+    });
     return {
         type: types.GET_SONG,
         payload: request
@@ -92,11 +99,39 @@ export function resetActiveSong(){
     };
 }
 
+// update song by id
+export function updateSong(props, tokenFromStorage,id){
+    const request = axios({
+        method: 'put',
+        data: props,
+        url: `${ROOT_URL}/songs/${id}`,
+        header: {
+            'x-access-token': tokenFromStorage
+        }
+    });
+    return {
+        type: types.UPDATE_SONG,
+        payload: request
+    };
+}
+export function updateSongSuccess(updatedSong){
+    return {
+        type: types.UPDATE_SONG_SUCCESS,
+        payload: updatedSong
+    };
+}
+export function updateSongFailure(error){
+    return {
+        type: types.UPDATE_SONG_FAILURE,
+        payload: error
+    };
+}
+
 // delete Song by id
 export function deleteSong(id, tokenFromStorage) {
   const request = axios({
     method: 'delete',
-    url: `${ROOT_URL}/song/${id}`,
+    url: `${ROOT_URL}/songs/${id}`,
     headers: {
       'x-access-token': tokenFromStorage
     }
