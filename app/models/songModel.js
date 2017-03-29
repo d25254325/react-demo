@@ -1,7 +1,7 @@
 var Promise = require('promise');
 var SongDAO = require('../DAOmodels/song');
 
-exports.getSongs = function(res){
+exports.getSongs = function(callback){
     var result = {
         success: false,
         err: null,
@@ -14,11 +14,11 @@ exports.getSongs = function(res){
             result.success = true;
             result.data = recievedObjs;
         }
-        res.json(result);
+        callback(result);
     });
 }
 
-exports.getSong = function (id,res) {
+exports.getSong = function (id,callback) {
     var result = {
         success: false,
         err: null,
@@ -35,11 +35,11 @@ exports.getSong = function (id,res) {
                 result.data = recievedObj;
             }
         }
-        res.json(result);
+        callback(result);
     });
 }
 
-exports.createSong = function (songObj,res) {
+exports.createSong = function (songObj,callback) {
     var song = new SongDAO();
 
     song.name = songObj.name;
@@ -59,11 +59,11 @@ exports.createSong = function (songObj,res) {
             result.success = true;
             result.data = song;
         }
-        res.json(result);
+        callback(result);
     });
 }
 
-exports.updateSong = function (id,songObj,res) {
+exports.updateSong = function (id,songObj,callback) {
 
     var result = {
         success: false,
@@ -74,12 +74,12 @@ exports.updateSong = function (id,songObj,res) {
     SongDAO.findById(id,function (error,recievedObj) {
         if(error){
             result.err = error;
-            res.json(result);
+            callback(result);
         }else{
 
             if(recievedObj === null){
                 result.err = "object not exist.";
-                res.json(result);
+                callback(result);
             }else{
                 var temp = Object.assign(recievedObj, songObj);
                 recievedObj = temp;
@@ -90,7 +90,7 @@ exports.updateSong = function (id,songObj,res) {
                         result.success = true;
                         result.data = recievedObj;
                     }
-                    res.json(result);
+                    callback(result);
                 });
             }
 
@@ -99,7 +99,7 @@ exports.updateSong = function (id,songObj,res) {
     });
 }
 
-exports.deleteSong = function (id,res) {
+exports.deleteSong = function (id,callback) {
     var result = {
         success: false,
         err: null,
@@ -108,11 +108,11 @@ exports.deleteSong = function (id,res) {
     SongDAO.findById(id,function (error,recievedObj) {
         if(error){
             result.err = error;
-            res.json(result);
+            callback(result);
         }else{
             if(recievedObj === null){
                 result.err = "object not exist.";
-                res.json(result);
+                callback(result);
             }else{
 
                 SongDAO.findByIdAndRemove(id,function (error) {
@@ -122,7 +122,7 @@ exports.deleteSong = function (id,res) {
                         result.success = true;
                         result.data = recievedObj;
                     }
-                    res.json(result);
+                    callback(result);
                 });
 
             }

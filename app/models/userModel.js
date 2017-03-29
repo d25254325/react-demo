@@ -1,6 +1,6 @@
 var DAOUser = require('../DAOmodels/user');
 
-exports.getUsers = function (res) {
+exports.getUsers = function (callback) {
      var result = {
         success: false,
         err: null,
@@ -13,11 +13,11 @@ exports.getUsers = function (res) {
             result.success = true;
             result.data = recievedObjs;
         }
-        res.json(result);
+        callback(result);
     });
 }
 
-exports.getUser = function (id,res) {
+exports.getUser = function (id,callback) {
      var result = {
         success: false,
         err: null,
@@ -34,35 +34,59 @@ exports.getUser = function (id,res) {
                 result.data = recievedObj;
             }
         }
-        res.json(result);
+        callback(result);
     });
 }
 
-exports.createUser = function(userObj,res){
-    var user = new DAOUser({
-        name: userObj.name,
-        userName: userObj.userName,
-        passWord: userObj.passWord,
-        admin: userObj.admin
-    });
-    var result = {
-        success: false,
-        err: null,
-        data: null
-    };
-    
-    user.save(function (err) {
-        if (err) {
-          result.err = err;  
-        }else{
-            result.success = true;
-            result.data = user;
-        }
-        res.json(result);
-    });
+exports.createUser = function(userObj, callback) {
+        var user = new DAOUser({
+            name: userObj.name,
+            userName: userObj.userName,
+            passWord: userObj.passWord,
+            admin: userObj.admin
+        });
+        var result = {
+            success: false,
+            err: null,
+            data: null
+        };
+        user.save(function (err) {
+            if (err) {
+              result.err = err;
+            }else{
+                result.success = true;
+                result.data = user;
+            }
+            return callback(result);
+        });
+  
 };
+// exports.createUser = function(userObj,res){
+//     var user = new DAOUser({
+//         name: userObj.name,
+//         userName: userObj.userName,
+//         passWord: userObj.passWord,
+//         admin: userObj.admin
+//     });
+//     var result = {
+//         success: false,
+//         err: null,
+//         data: null
+//     };
+    
+//     user.save(function (err) {
+//         if (err) {
+//           result.err = err;  
+//         }else{
+//             result.success = true;
+//             result.data = user;
+//         }
+//         res.json(result);
+//     });
+// };
 
-exports.updateUser = function (id,userObj,res) {
+
+exports.updateUser = function (id,userObj,callback) {
 
     var result = {
         success: false,
@@ -73,12 +97,12 @@ exports.updateUser = function (id,userObj,res) {
     DAOUser.findById(id,function (error,recievedObj) {
         if(error){
             result.err = error;
-            res.json(result);
+            callback(result);
         }else{
 
             if(recievedObj === null){
                 result.err = "object not exist.";
-                res.json(result);
+                callback(result);
             }else{
                 var temp = Object.assign(recievedObj, userObj);
                 recievedObj = temp;
@@ -89,7 +113,7 @@ exports.updateUser = function (id,userObj,res) {
                         result.success = true;
                         result.data = recievedObj;
                     }
-                    res.json(result);
+                    callback(result);
                 });
             }
 
@@ -98,7 +122,7 @@ exports.updateUser = function (id,userObj,res) {
     });
 }
 
-exports.deleteUser = function (id,res) {
+exports.deleteUser = function (id,callback) {
     var result = {
         success: false,
         err: null,
@@ -107,11 +131,11 @@ exports.deleteUser = function (id,res) {
     DAOUser.findById(id,function (error,recievedObj) {
         if(error){
             result.err = error;
-            res.json(result);
+            callback(result);
         }else{
             if(recievedObj === null){
                 result.err = "object not exist.";
-                res.json(result);
+                callback(result);
             }else{
 
                 DAOUser.findByIdAndRemove(id,function (error) {
@@ -121,7 +145,7 @@ exports.deleteUser = function (id,res) {
                         result.success = true;
                         result.data = recievedObj;
                     }
-                    res.json(result);
+                    callback(result);
                 });
 
             }

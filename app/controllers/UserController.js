@@ -2,11 +2,19 @@ var userModel = require('../models/userModel');
 var requestFilter = require('../helper/requestFilter');
 
 exports.getUsers = function(req,res){
-    userModel.getUsers(res);
+    userModel.getUsers(function (result) {
+        if (result) {
+            res.json(result);
+        }
+    });
 };
 exports.getUser = function (req,res) {
     var id = req.params.user_id;
-    userModel.getUser(id,res);
+    userModel.getUser(id,function (result) {
+        if (result) {
+            res.json(result);
+        }
+    });
 }
 exports.createUser = function (req,res) {
     
@@ -17,7 +25,11 @@ exports.createUser = function (req,res) {
             passWord: req.body.passWord,
             admin: req.body.admin || false
         };
-        userModel.createUser(userObj,res);
+        userModel.createUser(userObj,function (result) {
+            if(result){
+                res.json(result);
+            }
+        });
     }
     
 }
@@ -30,12 +42,20 @@ exports.updateUser = function (req,res) {
             passWord: req.body.passWord,
             admin: req.body.admin || false
         };
-        userModel.updateUser(id,userObj,res);
+        userModel.updateUser(id,userObj,function (result) {
+            if (result) {
+                res.json(result);
+            }
+        });
     }
     
 }
 
 exports.deleteUser = function (req,res) {
     var id = req.params.user_id;
-    userModel.deleteUser(id,res);
+    userModel.deleteUser(id,function(result){
+        if (result) {
+            res.json(result);
+        }
+    });
 }

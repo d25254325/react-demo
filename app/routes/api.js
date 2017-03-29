@@ -8,7 +8,7 @@ var apiRoutes = express.Router();
 
 module.exports = function (app) {
     
-    // apiRoutes.post('/users',UserController.createUser);
+    apiRoutes.post('/users',UserController.createUser);
 
     apiRoutes.post('/authenticate',function(req,res){
         User.findOne({ userName: req.body.userName },function(error,user){

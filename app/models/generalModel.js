@@ -1,6 +1,4 @@
-var Promise = require('mpromise');
-
-exports.getAll = function(daoObj){
+exports.getAll = function(daoObj,callback){
     var result = {
         success: false,
         err: null,
@@ -13,12 +11,11 @@ exports.getAll = function(daoObj){
             result.success = true;
             result.data = recievedObjs;
         }
+        callback(result);
     });
-    
-    return result;
 }
 
-exports.getOne = function (daoObj,id) {
+exports.getOne = function (daoObj,id,callback) {
     var result = {
         success: false,
         err: null,
@@ -31,11 +28,11 @@ exports.getOne = function (daoObj,id) {
             result.success = true;
             result.data = recievedObj;
         }
+        callback(result);
     });
-    return result;
 }
 
-exports.createOne = function(obj){
+exports.createOne = function(obj,callback){
     var result = {
         success: false,
         err: null,
@@ -48,8 +45,8 @@ exports.createOne = function(obj){
             result.success = true;
             result.data = obj;
         }
+        callback(result);
     });
-    return result;
 }
 
 exports.updateOne = function (id,obj,daoObj) {

@@ -2,13 +2,21 @@ var songModel = require('../models/songModel');
 var requestFilter = require('../helper/requestFilter');
 
 exports.getSongs = function(req,res){
-    songModel.getSongs(res);
+    songModel.getSongs(function (result) {
+            if (result) {
+                res.json(result);
+            }
+        });
 }
 
 exports.getSong = function (req,res) {
     if (requestFilter.checkRequireSongParams(req,res)) {
         var id = req.params.song_id;
-        songModel.getSong(id,res);
+        songModel.getSong(id,function (result) {
+            if (result) {
+                res.json(result);
+            }
+        });
     } 
     
 }
@@ -21,7 +29,11 @@ exports.createSong = function(req,res){
             lyric: req.body.lyric || '',
             type: req.body.type || ''
         };
-        songModel.createSong(songObj,res);
+        songModel.createSong(songObj,function (result) {
+            if (result) {
+                res.json(result);
+            }
+        });
     }
     
 }
@@ -36,7 +48,11 @@ exports.updateSong = function (req,res) {
                 lyric: req.body.lyric || '',
                 type: req.body.type || ''
             };
-            songModel.updateSong(id,songObj,res);
+            songModel.updateSong(id,songObj,function (result) {
+                if (result) {
+                    res.json(result);
+                }
+            });
         }
     }
     
@@ -45,6 +61,10 @@ exports.updateSong = function (req,res) {
 exports.deleteSong = function (req,res) {
     if(requestFilter.checkRequireSongParams(req,res)){
         var id = req.params.song_id;
-        songModel.deleteSong(id,res);
+        songModel.deleteSong(id,function (result) {
+            if (result) {
+                res.json(result);
+            }
+        });
     }
 }
