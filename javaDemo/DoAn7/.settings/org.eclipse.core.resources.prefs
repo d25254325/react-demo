@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/filters/CookieFilter.java=UTF-8
-encoding//src/filters/JDBCFilter.java=UTF-8
-encoding//src/utils/MyUtils.java=UTF-8
+encoding//src/webapp/filters/CookieFilter.java=UTF-8
+encoding//src/webapp/filters/JDBCFilter.java=UTF-8
+encoding//src/webapp/utils/MyUtils.java=UTF-8

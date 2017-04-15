@@ -1,4 +1,4 @@
-package beans;
+package webapp.beans;
 
 public class UserAccount {
 	private int id;

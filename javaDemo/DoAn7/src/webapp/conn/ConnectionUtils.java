@@ -1,4 +1,4 @@
-package conn;
+package webapp.conn;
 import java.sql.Connection;
 import java.sql.SQLException;
 public class ConnectionUtils {

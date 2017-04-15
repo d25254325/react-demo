@@ -1,8 +1,15 @@
-package filters;
+package webapp.filters;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
  
+
+
+
+
+
+
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,9 +20,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import beans.UserAccount;
-import utils.DBUtils;
-import utils.MyUtils;
+import webapp.beans.UserAccount;
+import webapp.utils.DBUtils;
+import webapp.utils.MyUtils;
 @WebFilter(filterName = "cookieFilter", urlPatterns = { "/*" })
 public class CookieFilter implements Filter{
 	
@@ -33,14 +40,14 @@ public class CookieFilter implements Filter{
 	       HttpSession session = req.getSession();
 	 
 	       UserAccount userInSession = MyUtils.getLoginedUser(session);
-	       // Đang login.
+	       // �?ang login.
 	       if (userInSession != null) {
 	           session.setAttribute("COOKIE_CHECKED", "CHECKED");
 	           chain.doFilter(request, response);
 	           return;
 	       }
 	 
-	       // Đã được tạo trong JDBCFilter.
+	       // �?ã được tạo trong JDBCFilter.
 	       Connection conn = MyUtils.getStoredConnection(request);
 	 
 	       // Có cần kiểm tra Cookie ko?
@@ -53,7 +60,7 @@ public class CookieFilter implements Filter{
 	           } catch (SQLException e) {
 	               e.printStackTrace();
 	           }
-	           // Đã kiểm tra cookie
+	           // �?ã kiểm tra cookie
 	           session.setAttribute("COOKIE_CHECKED", "CHECKED");
 	       }
 	 

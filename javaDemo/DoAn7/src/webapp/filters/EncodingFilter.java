@@ -1,9 +1,13 @@
-package filters;
+package webapp.filters;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Collection;
 import java.util.Map;
  
+
+
+
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,8 +18,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import conn.ConnectionUtils;
-import utils.MyUtils;
+import webapp.conn.ConnectionUtils;
+import webapp.utils.MyUtils;
 @WebFilter(filterName = "encodingFilter", urlPatterns = { "/*" })
 public class EncodingFilter implements Filter{
 
