@@ -1,0 +1,175 @@
+.engcenter-no-padding {
+  padding: 0;
+}
+.engcenter-up-case {
+  text-transform: uppercase;
+}
+.engcenter-clear-border {
+  border: unset;
+}
+.engcenter-button-red {
+  border: unset;
+  color: #fff;
+  background-color: #ff1344;
+}
+.engcenter-button-blue {
+  color: #fff;
+  border: unset;
+  background-color: #19498b;
+}
+.engcenter-button-green {
+  color: #fff;
+  border: unset;
+  background-color: #049d5c;
+}
+.engcenter-main-body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.engcenter-top-content {
+  height: auto;
+  background: url("../imgs/background.jpg") no-repeat;
+  background-color: rgba(14,7,0,0.2);
+}
+.engcenter-nav-custom {
+  border-radius: 0;
+  border: unset;
+  margin-bottom: 0;
+  background-color: transparent;
+}
+.engcenter-nav-custom .engcenter-logo img {
+  max-width: 15rem;
+}
+@media screen and (min-width: 992px) {
+  .engcenter-nav-custom .engcenter-logo img {
+    max-width: 20rem;
+  }
+}
+.engcenter-nav-custom .engcenter-nav-ul {
+  text-transform: uppercase;
+}
+.engcenter-nav-custom .engcenter-nav-ul .active a,
+.engcenter-nav-custom .engcenter-nav-ul .open a,
+.engcenter-nav-custom .engcenter-nav-ul .active a:focus,
+.engcenter-nav-custom .engcenter-nav-ul .open a:focus,
+.engcenter-nav-custom .engcenter-nav-ul .active a:hover,
+.engcenter-nav-custom .engcenter-nav-ul .open a:hover {
+  color: #122262;
+  background-color: unset;
+}
+@media screen and (min-width: 768px) {
+  .engcenter-nav-custom .engcenter-nav-ul li {
+    border-right: 0.2rem solid #fff;
+  }
+  .engcenter-nav-custom .engcenter-nav-ul li a {
+    padding: 0 3rem;
+  }
+}
+.engcenter-nav-custom .engcenter-nav-ul li a {
+  font-weight: bold;
+  background: unset;
+  color: #fff;
+}
+.engcenter-nav-custom .engcenter-nav-ul li a:hover {
+  color: #122262;
+  background-color: unset;
+}
+.engcenter-nav-custom .engcenter-nav-ul li:last-child {
+  border-right: unset;
+}
+.engcenter-nav-custom .engcenter-nav-ul .dropdown-menu {
+  background: unset;
+  border: unset;
+  box-shadow: unset;
+}
+.engcenter-nav-custom .engcenter-nav-ul .dropdown-menu li {
+  border-right: unset;
+  background-color: unset;
+  color: #fff;
+}
+@media screen and (min-width: 768px) {
+  .engcenter-nav-custom .engcenter-nav-ul .dropdown-menu li {
+    margin-top: 0.2rem;
+    background-color: rgba(14,7,0,0.8);
+  }
+  .engcenter-nav-custom .engcenter-nav-ul .dropdown-menu li a {
+    font-size: 1.2rem;
+    padding: 0.8rem 2.4rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .engcenter-nav-custom .engcenter-nav-ul .dropdown-menu li a:hover {
+    color: #122262 !important;
+  }
+}
+.engcenter-nav-custom .engcenter-nav-ul .dropdown-menu li a {
+  color: #fff !important;
+}
+p.engcenter-question {
+  font-size: 3rem;
+  color: #fff;
+}
+section.engcenter-recommend {
+  position: relative;
+  background-color: rgba(18,34,98,0.6);
+}
+section.engcenter-recommend .engcenter-recommend-item {
+  padding: 1.6rem 0 2.4rem 0;
+}
+section.engcenter-recommend .engcenter-recommend-item a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 2.4rem;
+}
+section.engcenter-recommend .engcenter-recommend-item a:first-child {
+  margin-left: 0;
+}
+section.engcenter-recommend .engcenter-recommend-button {
+  padding: 0 0 4rem 0;
+}
+section.engcenter-recommend .engcenter-recommend-button a {
+  padding: 0.8rem 1.6rem;
+  font-weight: bold;
+  line-height: 5rem;
+  margin: 0.4rem;
+}
+section.engcenter-recommend .engcenter-recommend-button a i {
+  width: 5rem;
+  height: 5rem;
+  float: left;
+  margin-right: 0.8rem;
+  background: url("http://stc.id.nixcdn.com/v11/images/icon-repeat.png") no-repeat;
+}
+section.engcenter-recommend .engcenter-recommend-button .user-icon i {
+  background-position: left -160rem;
+}
+section.engcenter-recommend .engcenter-recommend-button a:hover,
+section.engcenter-recommend .engcenter-recommend-button a:focus {
+  color: #fff;
+}
+section.engcenter-recommend .engcenter-recommend-advisory {
+  position: absolute;
+  bottom: 0;
+  right: 2%;
+}
+section.engcenter-recommend .engcenter-recommend-advisory img {
+  width: 15rem;
+}
+footer.engcenter-footer {
+  background-color: #122262;
+}
+footer.engcenter-footer .engcenter-footer-contact {
+  padding: 1rem;
+}
+footer.engcenter-footer .engcenter-footer-contact p {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+footer.engcenter-footer .engcenter-footer-contact img {
+  margin-right: 0.8rem;
+  float: left;
+  width: 20rem;
+}

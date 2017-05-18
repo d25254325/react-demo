@@ -1,0 +1,140 @@
+min_medium = 'screen and (min-width: 768px)'
+min_large = 'screen and (min-width: 992px)'
+min_xlarge = 'screen and (min-width: 1200px)'
+
+max_medium = 'screen and (max-width: 768px)'
+max_large = 'screen and (max-width: 992px)'
+max_xlarge = 'screen and (max-width: 1200px)'
+
+color_borderNav = #000
+color_background = rgba(14, 7, 0,0.2)
+color_fontColor = #fff
+
+.engcenter-no-padding
+	padding: 0
+.engcenter-up-case
+	text-transform: uppercase
+.engcenter-clear-border
+	border: unset
+.engcenter-button-red
+	border: unset
+	color: #fff
+	background-color: #FF1344
+.engcenter-button-blue
+	color: #fff
+	border: unset
+	background-color: #19498B
+.engcenter-button-green
+	color: #fff
+	border: unset
+	background-color: #049D5C
+.engcenter-main-body
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+	margin: 0
+	padding: 0
+	width: 100%
+.engcenter-top-content
+	height: auto 
+	background: url(../imgs/background.jpg) no-repeat
+	background-color: rgba(14, 7, 0,0.2)
+.engcenter-nav-custom
+	border-radius: 0
+	border: unset
+	margin-bottom: 0
+	background-color: transparent
+	.engcenter-logo
+		img
+			max-width: 15rem
+			@media min_large
+				max-width: 20rem
+	.engcenter-nav-ul
+		text-transform: uppercase
+		.active,.open
+			a,a:focus,a:hover
+				color: #122262
+				background-color: unset
+		li
+			@media min_medium
+				border-right: 0.2rem solid #fff
+				a
+					padding: 0 3rem
+			a
+				font-weight: bold
+				background: unset
+				color: color_fontColor
+			a:hover
+				color: #122262
+				background-color: unset
+		li:last-child
+			border-right: unset
+		.dropdown-menu
+			background: unset
+			border: unset
+			box-shadow: unset
+			li
+				border-right: unset
+				background-color: unset
+				color: color_fontColor
+				@media min_medium
+					margin-top: 0.2rem
+					background-color: rgba(14, 7, 0, 0.8)
+					a
+						font-size: 1.2rem
+						padding: 0.8rem 2.4rem
+				@media max_medium
+					a:hover
+						color: #122262 !important
+				a
+					color: color_fontColor !important
+p.engcenter-question
+	font-size: 3rem
+	color: #fff
+section.engcenter-recommend
+	position: relative
+	background-color: rgba(18, 34, 98, 0.6)
+	.engcenter-recommend-item
+		padding: 1.6rem 0 2.4rem 0
+		a 
+			color: #fff
+			text-decoration: none
+			margin-left: 2.4rem
+		a:first-child
+			margin-left: 0
+	
+	.engcenter-recommend-button
+		padding: 0 0 4rem 0
+		a
+			padding: 0.8rem 1.6rem
+			font-weight: bold
+			line-height: 5rem
+			margin: 0.4rem
+			i
+				width: 5rem;
+				height: 5rem;
+				float: left;
+				margin-right: 0.8rem
+				background: url(http://stc.id.nixcdn.com/v11/images/icon-repeat.png) no-repeat
+		.user-icon
+			i
+				background-position: left -160rem
+		a:hover,a:focus
+			color: #fff
+	.engcenter-recommend-advisory
+		position: absolute
+		bottom: 0
+		right: 2%
+		img
+			width: 15rem
+				
+footer.engcenter-footer
+	background-color: rgb(18, 34, 98)
+	.engcenter-footer-contact
+		padding: 1rem 
+		p
+			color: #fff
+			font-size: 1.3rem
+			margin-bottom: 0.8rem
+		img
+			margin-right: 0.8rem
+			float: left
+			width: 20rem
